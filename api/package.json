@@ -1,0 +1,29 @@
+{
+   "name": "api",
+   "version": "1.0.0",
+   "main": "index.js",
+   "license": "MIT",
+   "scripts": {
+      "dev:server": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch --no-notify --respawn ./src/server.ts",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+      "start": "ts-node src/index.ts"
+   },
+   "dependencies": {
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "global": "^4.4.0",
+      "mysql2": "^2.3.3",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.41",
+      "mysql": "^2.14.1"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.13",
+      "@types/node": "^8.0.29",
+      "ts-node-dev": "^1.1.8",
+      "tsconfig-paths": "^3.12.0",
+      "typescript": "3.3.3333",
+      "ts-node": "3.3.0"
+   }
+}
