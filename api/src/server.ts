@@ -1,7 +1,10 @@
 import express, { Request, Response } from "express";
 import { createConnection } from "typeorm";
+import router from "./config/routes";
 
 const app = express();
+app.use(express.json());
+app.use(router);
 
 app.get("/", (request: Request, response: Response) => {
   return response.json({

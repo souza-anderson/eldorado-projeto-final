@@ -27,7 +27,7 @@ export class Movie {
     name: "genre_id",
     referencedColumnName: "id"
   })
-  public genre_id: number
+  public genre: Genre;
 
   @CreateDateColumn()
   public created_at: Date;
