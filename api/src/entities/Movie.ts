@@ -1,5 +1,7 @@
+import slugify from "slugify";
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Genre } from "./Genre";
+import slugConfig from "../config/slugify";
 
 @Entity()
 export class Movie {
@@ -9,6 +11,9 @@ export class Movie {
 
   @Column()
   public name: string;
+
+  @Column()
+  public slug: string;
 
   @Column()
   public synopsis: string;
@@ -43,6 +48,10 @@ export class Movie {
   @BeforeUpdate()
   public updatedAt() {
     this.updated_at = new Date();
+  }
+
+  public addSlug() {
+    this.slug = slugify(this.name, slugConfig);
   }
 
 }
