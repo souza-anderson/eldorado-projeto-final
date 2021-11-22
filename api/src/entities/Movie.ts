@@ -50,6 +50,8 @@ export class Movie {
     this.updated_at = new Date();
   }
 
+  @BeforeInsert()
+  @BeforeUpdate()
   public addSlug() {
     this.slug = slugify(this.name, slugConfig);
   }

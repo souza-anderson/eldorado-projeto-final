@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import { createConnection } from "typeorm";
 import router from "./config/routes";
 import { pagination } from "typeorm-pagination";

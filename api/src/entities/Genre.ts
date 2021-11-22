@@ -1,5 +1,6 @@
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-
+import slugify from "slugify";
+import slugConfig from "../config/slugify";
 @Entity()
 export class Genre {
 
@@ -8,6 +9,9 @@ export class Genre {
 
   @Column()
   public name: string;
+
+  @Column()
+  public slug: string;
 
   @CreateDateColumn()
   public created_at: Date;
@@ -23,6 +27,12 @@ export class Genre {
   @BeforeUpdate()
   public updatedAt() {
     this.updated_at = new Date();
+  }
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  public addSlug() {
+    this.slug = slugify(this.name, slugConfig);
   }
 
 }
