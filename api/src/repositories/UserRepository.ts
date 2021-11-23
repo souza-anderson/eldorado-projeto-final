@@ -13,6 +13,10 @@ class UserRepository extends Repository<User> {
     return this.findOne(id);
   }
 
+  public findByEmail(email: string): Promise<User | undefined> {
+    return this.findOne({ email });
+  }
+
   public findByName(name: string): Promise<User | undefined> {
     return this.findOne({ name });
   }
