@@ -1,5 +1,5 @@
 import slugify from "slugify";
-import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { AfterLoad, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Genre } from "./Genre";
 import slugConfig from "../config/slugify";
 
@@ -34,6 +34,8 @@ export class Movie {
   })
   public genre: Genre;
 
+  public poster_full_path: string;
+
   @CreateDateColumn()
   public created_at: Date;
 
@@ -54,6 +56,11 @@ export class Movie {
   @BeforeUpdate()
   public addSlug() {
     this.slug = slugify(this.name, slugConfig);
+  }
+
+  @AfterLoad()
+  public setPosterFullPath() {
+    this.poster_full_path = `http://localhost:5221/static/movies/${this.poster}`;
   }
 
 }
