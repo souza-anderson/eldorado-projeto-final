@@ -1,8 +1,8 @@
 import { Router } from "express";
 import multer from "multer";
-import uploadConfig from "../multer";
-import MovieValidator from "../../validators/MovieValidator";
-import MovieController from "../../controllers/MovieController";
+import uploadConfig from "../config/multer";
+import MovieValidator from "../validators/MovieValidator";
+import MovieController from "../controllers/MovieController";
 
 const upload = multer(uploadConfig);
 

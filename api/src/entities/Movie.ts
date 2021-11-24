@@ -2,6 +2,7 @@ import slugify from "slugify";
 import { AfterLoad, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Genre } from "./Genre";
 import slugConfig from "../config/slugify";
+import hostConfig from "../config/host";
 
 @Entity()
 export class Movie {
@@ -60,7 +61,7 @@ export class Movie {
 
   @AfterLoad()
   public setPosterFullPath() {
-    this.poster_full_path = `http://localhost:5221/static/movies/${this.poster}`;
+    this.poster_full_path = `http://${hostConfig.host}:${hostConfig.port}/static/movies/${this.poster}`;
   }
 
 }

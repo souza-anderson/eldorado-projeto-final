@@ -1,6 +1,6 @@
 import { Router } from "express";
-import GenreValidator from "../../validators/GenreValidator";
-import GenreController from "../../controllers/GenreController";
+import GenreValidator from "../validators/GenreValidator";
+import GenreController from "../controllers/GenreController";
 
 
 const genreRoutes = Router();

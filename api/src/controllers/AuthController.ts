@@ -3,6 +3,7 @@ import UserRepository from "../repositories/UserRepository";
 import { getCustomRepository } from "typeorm";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
+import authConfig from "../config/auth";
 
 class AuthController {
     async auth(request: Request, response: Response) {
@@ -21,8 +22,8 @@ class AuthController {
                 });
             }
 
-            const passwordIsValid = await compare(password, user.password);
-            if (!passwordIsValid) {
+            const isValidPassword = await compare(password, user.password);
+            if (!isValidPassword) {
                 return response.status(401).json({
                     status: "fail",
                     data: {
@@ -34,16 +35,22 @@ class AuthController {
             // delete user.password;
             // delete user.created_at;
             // delete user.updated_at;
+            const payload = {
+                name: user.name,
+                email: user.email
+            };
 
             const token = sign(
-                { user },
-                "secrectkey",
+                payload,
+                authConfig.secretKey as string,
                 {  expiresIn: "1d"}
             );
 
             return response.status(200).json({
                 status: "success",
-                token
+                data: {
+                    token
+                }
             })
         } catch(error) {
             return response.status(400).json({
