@@ -10,7 +10,7 @@ const router = Router();
 
 router.use("/auth", authRoutes);
 
-router.use(auth);
+// router.use(auth);
 
 router.use("/movies", movieRoutes);
 router.use("/genres", genreRoutes);

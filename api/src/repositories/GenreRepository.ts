@@ -1,12 +1,11 @@
 import { Genre } from "../entities/Genre";
 import { EntityRepository, Repository } from "typeorm";
-import { PaginationAwareObject } from "typeorm-pagination/dist/helpers/pagination";
 
 @EntityRepository(Genre)
 class GenreRepository extends Repository<Genre> {
-  public findAll(): Promise<PaginationAwareObject> {
+  public findAll(): Promise<Genre[]> {
     const query = this.createQueryBuilder("n");
-    return query.paginate();
+    return query.getMany();
   }
 
   public findById(id: number): Promise<Genre | undefined> {

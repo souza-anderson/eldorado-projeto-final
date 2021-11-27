@@ -166,7 +166,7 @@ class MovieController {
         })
       }
 
-      await movieRepository.delete(movie);
+      await movieRepository.delete(id);
 
       return response.status(200).json({
         status: "success",

@@ -219,7 +219,7 @@ class UserController {
         })
       }
 
-      await userRepository.delete(user);
+      await userRepository.delete(id);
 
       return response.status(200).json({
         status: "success",

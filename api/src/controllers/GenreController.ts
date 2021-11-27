@@ -142,7 +142,7 @@ class GenreController {
         })
       }
 
-      await genreRepository.delete(genre);
+      await genreRepository.delete(id);
 
       return response.status(200).json({
         status: "success",
