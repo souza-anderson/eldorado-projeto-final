@@ -23,7 +23,7 @@ class UserController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       });
     }
   }
@@ -38,7 +38,7 @@ class UserController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "User not found"
+            user: "user not found"
           }
         });
       }
@@ -53,7 +53,7 @@ class UserController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       });
     }
 
@@ -71,7 +71,7 @@ class UserController {
         return response.status(409).json({
           status: "fail",
           data: {
-            title: "User already exists"
+            user: "user already exists"
           }
         })
       }  
@@ -86,7 +86,7 @@ class UserController {
       if (typeof user !== "undefined") {
         const transport = createTransport({
           host: mailerConfig.mailHost,
-          port: mailerConfig.mailPort,
+          port: Number(mailerConfig.mailPort),
           auth: {
             user: mailerConfig.mailUser,
             pass: mailerConfig.mailPass
@@ -128,7 +128,7 @@ class UserController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       });
     }
 
@@ -146,7 +146,7 @@ class UserController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "User not found"
+            user: "user not found"
           }
         });
       }
@@ -161,7 +161,7 @@ class UserController {
 
       const transport = createTransport({
         host: mailerConfig.mailHost,
-        port: mailerConfig.mailPort,
+        port: Number(mailerConfig.mailPort),
         auth: {
           user: mailerConfig.mailUser,
           pass: mailerConfig.mailPass
@@ -192,13 +192,14 @@ class UserController {
       return response.status(200).json({
         status: "success",
         data: {
-          user
+          user,
+          info
         }
       });
     } catch (error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       });
     }
   }
@@ -213,7 +214,7 @@ class UserController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "User not found"
+            user: "user not found"
           }
         })
       }
@@ -222,15 +223,13 @@ class UserController {
 
       return response.status(200).json({
         status: "success",
-        data: {
-          title: "User deleted successfuly"
-        }
+        data: null
       })
 
     } catch (error) {
       response.status(400).json({
         status: "error",
-        error
+        message: error.message
       });
     }
   }  

@@ -19,7 +19,7 @@ class GenreController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       });
     }
   }
@@ -34,7 +34,7 @@ class GenreController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "Genre not found"
+            genre: "genre not found"
           }
         });
       }
@@ -49,7 +49,7 @@ class GenreController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       })
     }
 
@@ -67,7 +67,7 @@ class GenreController {
         return response.status(409).json({
           status: "fail",
           data: {
-            title: "Genre already exists"
+            genre: "genre already exists"
           }
         })
       }  
@@ -86,8 +86,8 @@ class GenreController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
-      })
+        message: error.message
+      });
     }
 
   }
@@ -102,7 +102,7 @@ class GenreController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "Genre not found"
+            genre: "genre not found"
           }
         });
       }
@@ -122,7 +122,7 @@ class GenreController {
     } catch (error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       })
     }
   }
@@ -137,7 +137,7 @@ class GenreController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "Genre not found"
+            genre: "genre not found"
           }
         })
       }
@@ -146,15 +146,13 @@ class GenreController {
 
       return response.status(200).json({
         status: "success",
-        data: {
-          title: "Genre deleted successfuly"
-        }
-      })
+        data: null
+      });
 
     } catch (error) {
       response.status(400).json({
         status: "error",
-        error
+        message: error.message
       })
     }
   }

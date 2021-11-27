@@ -17,7 +17,7 @@ class AuthController {
                 return response.status(404).json({
                     status: "fail",
                     data: {
-                        title: "User not found"
+                        user: "user not found"
                     }
                 });
             }
@@ -27,7 +27,7 @@ class AuthController {
                 return response.status(401).json({
                     status: "fail",
                     data: {
-                        title: "Credentials wrong. Try again!"
+                        crendentials: "credentials wrong. Try again!"
                     }
                 });
             }
@@ -55,7 +55,7 @@ class AuthController {
         } catch(error) {
             return response.status(400).json({
                 status: "error",
-                error
+                message: error.message
             });
         }
     }

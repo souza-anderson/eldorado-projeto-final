@@ -19,8 +19,8 @@ class MovieController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
-      })
+        message: error.message
+      });
     }
   }
 
@@ -34,7 +34,7 @@ class MovieController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "Movie not found"
+            movie: "movie not found"
           }
         });
       }
@@ -49,7 +49,7 @@ class MovieController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       })
     }
 
@@ -74,7 +74,7 @@ class MovieController {
         return response.status(409).json({
           status: "fail",
           data: {
-            title: "Movie already exists"
+            movie: "movie already exists"
           }
         })
       }  
@@ -98,8 +98,8 @@ class MovieController {
     } catch(error) {
       return response.status(400).json({
         status: "error",
-        error
-      })
+        message: error.message
+      });
     }
 
   }
@@ -114,7 +114,7 @@ class MovieController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "Movie not found"
+            movie: "movie not found"
           }
         });
       }
@@ -146,7 +146,7 @@ class MovieController {
     } catch (error) {
       return response.status(400).json({
         status: "error",
-        error
+        message: error.message
       })
     }
   }
@@ -161,7 +161,7 @@ class MovieController {
         return response.status(404).json({
           status: "fail",
           data: {
-            title: "Movie not found"
+            movie: "movie not found"
           }
         })
       }
@@ -170,15 +170,13 @@ class MovieController {
 
       return response.status(200).json({
         status: "success",
-        data: {
-          title: "Movie deleted successfuly"
-        }
-      })
+        data: null
+      });
 
     } catch (error) {
       response.status(400).json({
         status: "error",
-        error
+        message: error.message
       })
     }
   }
