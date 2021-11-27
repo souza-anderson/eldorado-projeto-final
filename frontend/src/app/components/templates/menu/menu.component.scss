@@ -1,0 +1,16 @@
+$orange_color: #FF9D1C;
+$white_color: #fff;
+
+ul {
+    display: flex;
+    list-style: none;
+
+    li {
+        margin-right: 10px;
+
+        a {
+            text-decoration: none;
+            color: $white_color;
+        }
+    }
+}

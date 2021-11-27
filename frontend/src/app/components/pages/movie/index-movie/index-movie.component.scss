@@ -1,0 +1,77 @@
+.container__movie {
+
+  width: 90vw;
+  margin: 0 auto;
+
+  .header__movie {
+    display: flex;
+    justify-content:  space-between;
+  }
+
+
+  margin-top: 30px;
+  table.table {
+    width: 100%;
+    border: 1px solid #212529;
+    margin-top: 30px;
+    border-collapse: collapse;
+
+    tr,
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    tr > th {
+      background-color: #212529;
+      color: #fff;
+    }
+    tr:nth-child(odd) {
+      background-color: #3e3e3d;
+    }
+    tr:nth-child(even) {
+      background-color: #262626;
+    }
+  }
+  .btn__position {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  .btn__create {
+    padding: 10px 40px;
+    background-color: #FF9D1C;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+  .btn__view {
+    background: #2ba554;
+  }
+  .btn__delete {
+    background-color: #bd0f0f;
+  }
+  .btn__view {
+    background-color: #f8ba46;
+  }
+  .btn {
+    padding: 5px 13px;
+    border-radius: 2px;
+    margin: 2px 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .actions {
+    width: 15%;
+  }
+  .btn__pagination {  
+    margin-left: 15px;
+    margin-top: 20px;
+    float: right;
+    color: #FF9D1C;
+  }
+
+  select {
+    padding: 5px 10px;
+  }
+}

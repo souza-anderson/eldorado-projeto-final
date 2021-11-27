@@ -1,0 +1,58 @@
+.title {
+    margin-top: 20px;
+}
+
+.container__create {
+    margin-top: 20px;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.form-container {
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      font-size: 1rem;
+      padding: 3px;
+      background-color: #3e3e3d;
+      color: #fff;
+    }
+    input,
+    select {
+      height: 30px;
+    }
+    textarea {
+      height: 150px;
+    }
+  }
+  .btn__save {
+    padding: 10px 30px;
+    background-color: #2ba554;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    float: right;
+
+    padding: 10px 40px;
+    background-color: #FF9D1C;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+  .errors {
+    border: 2px dashed #851e1e;
+    background-color: #eeaaaa;
+    color: #262626;
+    padding: 20px;
+    margin: 20px 0;
+    font-weight: bold;
+  }

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+$orange_color: #FF9D1C;
+$white_color: #fff;
+$black_color: #212529;
+$gray_light_color: #3e3e3d;
+$gray_color: #262626;
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Roboto', sans-serif;
+    background-color: $black_color;
+    color: $white_color;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+
+    width: 90vw;
+    margin: 0 auto;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    h1 {
+        color: $white_color;
+        font-weight: 500;
+    }
+}
+

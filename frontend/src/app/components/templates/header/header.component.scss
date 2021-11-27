@@ -1,0 +1,27 @@
+$orange_color: #FF9D1C;
+$white_color: #fff;
+
+header {
+    background-color: $orange_color;
+    color: $white_color;
+   
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+        .header-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        h2 {
+            font-style: normal;
+            font-size: 1rem;
+            line-height: 1.625rem;
+        }
+    }
+}

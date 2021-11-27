@@ -1,0 +1,48 @@
+
+<div class="title container__create">
+    <h2>Add movie</h2>
+    <hr>
+</div>
+<div class="container__create" >
+    <div class="errors" *ngIf="hasErrors">
+        <ul>
+            <li *ngFor="let error of errors">{{ error }}</li>
+        </ul>
+    </div>
+    <div class="success" *ngIf="hasSuccess">{{ successMessage }}</div>
+    <form action="">
+        <div class="form-container">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="movie.data.name">
+        </div>
+        <div class="form-container">
+            <label for="synopsis">Synopsis</label>
+            <textarea id="synopsis" name="synopsis" [(ngModel)]="movie.data.synopsis"></textarea>
+        </div>
+        <div class="form-container">
+            <label for="release_year">Release Year</label>
+            <input type="text" id="release_year" name="release_year" [(ngModel)]="movie.data.release_year">
+        </div>
+        <div class="form-container">
+            <label for="billing">Billing</label>
+            <input type="text" id="billing" name="billing" [(ngModel)]="movie.data.billing">
+        </div>
+        <div class="form-container">
+            <label for="poster">Poster</label>
+            <input type="file" id="poster" name="poster" [(ngModel)]="movie.data.poster" (change)="handleFile($event.target.files)">
+        </div>
+        
+        <div class="form-container">
+            <label for="genre">Genre</label>
+            <select id="genre" name="genre" [(ngModel)]="movie.data.genre">
+                <option value="">Select</option>
+      
+                <option *ngFor="let genre of genres.data.genres" [value]="genre.id" >
+                    {{ genre.name }}
+                </option>
+            </select>
+        </div>
+
+        <button type="button" class="btn__save" (click)="addNew()">Save</button>
+    </form>
+</div>
